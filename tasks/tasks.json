@@ -1,0 +1,196 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Set up project development environment",
+      "description": "Initialize the project repository with React + Vite frontend and Express backend structure",
+      "status": "done",
+      "dependencies": [],
+      "priority": "high",
+      "details": "Create a monorepo structure with separate directories for frontend and backend. Initialize the frontend with Vite and React, configure TailwindCSS. Set up the Express backend with TypeScript support. Configure ESLint, Prettier, and Git hooks for code quality. Create basic README documentation with setup instructions.",
+      "testStrategy": "Verify that both frontend and backend can be started locally. Ensure that the development environment includes hot reloading and proper TypeScript compilation."
+    },
+    {
+      "id": 2,
+      "title": "Implement TDX API integration service",
+      "description": "Create a service to interact with the TDX API for public transportation data",
+      "status": "pending",
+      "dependencies": [
+        1
+      ],
+      "priority": "high",
+      "details": "Implement a service layer that handles authentication with TDX API. Create modules for fetching different types of data: bus routes, train schedules, and Ubike availability. Implement rate limiting to respect API constraints. Create data models that match the TDX API response structure. Document all API endpoints being used.",
+      "testStrategy": "Write unit tests for the API service. Create mock responses for testing. Verify successful authentication and data retrieval from TDX API endpoints."
+    },
+    {
+      "id": 3,
+      "title": "Set up Prisma ORM and database schema",
+      "description": "Configure Prisma ORM and define database schema for caching transportation data",
+      "status": "pending",
+      "dependencies": [
+        1
+      ],
+      "priority": "high",
+      "details": "Install and configure Prisma ORM. Define database schema for storing bus routes, train schedules, stations, and Ubike data. Create migrations for the initial schema. Implement database connection handling with proper error management. Set up seed data for development purposes.",
+      "testStrategy": "Run migrations on a test database. Verify schema integrity. Test basic CRUD operations on all defined models."
+    },
+    {
+      "id": 4,
+      "title": "Implement data caching system",
+      "description": "Create a caching system for TDX data with appropriate refresh intervals",
+      "status": "pending",
+      "dependencies": [
+        2,
+        3
+      ],
+      "priority": "high",
+      "details": "Implement a caching service that stores TDX data in the database. Follow the specified refresh intervals: bus data every 30 seconds, train schedules daily, and Ubike data every 5 minutes. Create background jobs for data refresh. Implement cache invalidation strategies. Add timestamp tracking for data freshness. Handle cache misses gracefully.",
+      "testStrategy": "Test cache hit/miss scenarios. Verify that data is refreshed according to the specified intervals. Measure cache performance under load."
+    },
+    {
+      "id": 5,
+      "title": "Set up TileServerGL for map tiles",
+      "description": "Configure TileServerGL to serve map tiles with TGOS data",
+      "status": "pending",
+      "dependencies": [
+        1
+      ],
+      "priority": "medium",
+      "details": "Install and configure TileServerGL. Integrate TGOS map data sources. Set up tile generation and caching. Configure proper zoom levels and boundaries for Taiwan. Implement tile server API endpoints in the Express backend. Add compression and optimization for tile delivery.",
+      "testStrategy": "Test tile loading at different zoom levels. Verify tile caching is working. Measure tile loading performance."
+    },
+    {
+      "id": 6,
+      "title": "Create Express API endpoints for transportation data",
+      "description": "Implement RESTful API endpoints to serve cached transportation data",
+      "status": "pending",
+      "dependencies": [
+        4
+      ],
+      "priority": "high",
+      "details": "Create API endpoints for: bus routes search, train schedule lookup, station information, and Ubike availability. Implement filtering and pagination. Add proper error handling and status codes. Implement request validation. Document all endpoints with Swagger/OpenAPI. Add rate limiting for public endpoints.",
+      "testStrategy": "Write integration tests for all API endpoints. Test error scenarios and edge cases. Verify response formats match frontend requirements."
+    },
+    {
+      "id": 7,
+      "title": "Set up React frontend with Vite and TailwindCSS",
+      "description": "Initialize the frontend application with routing and basic UI components",
+      "status": "pending",
+      "dependencies": [
+        1
+      ],
+      "priority": "high",
+      "details": "Set up React application with Vite. Configure TailwindCSS with a custom theme matching the application design. Implement responsive layouts. Create basic UI components (buttons, inputs, cards, etc.). Set up React Router for navigation. Create placeholder pages for main features. Implement a basic layout with header and footer.",
+      "testStrategy": "Verify component rendering with React Testing Library. Test responsive design across different screen sizes. Ensure accessibility compliance with automated tools."
+    },
+    {
+      "id": 8,
+      "title": "Implement DeckGL map integration",
+      "description": "Integrate DeckGL for interactive map visualization",
+      "status": "pending",
+      "dependencies": [
+        5,
+        7
+      ],
+      "priority": "high",
+      "details": "Set up DeckGL in the React application. Configure map initialization with proper center coordinates for Taiwan. Implement map controls (zoom, pan, etc.). Connect to the tile server for base map layers. Create custom map styles. Implement responsive map container. Add basic map interaction handlers.",
+      "testStrategy": "Test map rendering and basic interactions. Verify tile loading from the backend. Test map performance with different devices and browsers."
+    },
+    {
+      "id": 9,
+      "title": "Implement transport route visualization on map",
+      "description": "Create visualization layers for bus routes, train lines, and stations on the map",
+      "status": "pending",
+      "dependencies": [
+        6,
+        8
+      ],
+      "priority": "medium",
+      "details": "Create DeckGL layers for different transportation types: bus routes (PathLayer), train lines (PathLayer), stations/stops (ScatterplotLayer). Implement proper styling and colors for each transportation type. Add interactive features like hover and click. Implement layer toggling. Optimize rendering for performance.",
+      "testStrategy": "Test layer rendering with different data sets. Verify interactive features work correctly. Measure rendering performance with large data sets."
+    },
+    {
+      "id": 10,
+      "title": "Implement route search functionality",
+      "description": "Create search interface for finding specific bus and train routes",
+      "status": "pending",
+      "dependencies": [
+        6,
+        7
+      ],
+      "priority": "high",
+      "details": "Implement search components with autocomplete for bus routes, train lines, and stations. Create search results display with relevant information. Implement search filters (by region, transportation type, etc.). Add recent searches functionality. Connect search to the backend API. Implement error handling for failed searches.",
+      "testStrategy": "Test search functionality with various inputs. Verify autocomplete suggestions. Test error handling for network issues. Measure search response time."
+    },
+    {
+      "id": 11,
+      "title": "Implement real-time information display",
+      "description": "Create components to display real-time arrival times and availability",
+      "status": "pending",
+      "dependencies": [
+        6,
+        7
+      ],
+      "priority": "medium",
+      "details": "Implement components for displaying: bus arrival times, train schedules, and Ubike availability. Create polling mechanism for real-time updates. Add visual indicators for data freshness. Implement loading states. Create fallback UI for when real-time data is unavailable. Add time formatting utilities.",
+      "testStrategy": "Test real-time updates with mock data. Verify polling mechanism works correctly. Test fallback behavior when API fails. Verify time calculations and formatting."
+    },
+    {
+      "id": 12,
+      "title": "Implement real-time vehicle position tracking",
+      "description": "Add functionality to display real-time positions of buses and trains on the map",
+      "status": "pending",
+      "dependencies": [
+        9,
+        11
+      ],
+      "priority": "medium",
+      "details": "Create DeckGL layer for vehicle positions (ScatterplotLayer). Implement real-time updates for vehicle positions. Add animations for smooth transitions. Create vehicle markers with direction indicators. Add vehicle details on click/hover. Optimize for performance with many vehicles.",
+      "testStrategy": "Test vehicle position updates. Verify animation smoothness. Test with varying numbers of vehicles to ensure performance. Verify interaction with vehicle markers."
+    },
+    {
+      "id": 13,
+      "title": "Implement error handling and offline fallbacks",
+      "description": "Create robust error handling and fallback mechanisms for offline or degraded service",
+      "status": "pending",
+      "dependencies": [
+        4,
+        6,
+        11
+      ],
+      "priority": "medium",
+      "details": "Implement global error handling for API failures. Create UI components for error states. Add clear notifications for outdated information. Implement graceful degradation when services are unavailable. Create offline indicators. Add retry mechanisms for failed requests. Implement logging for client-side errors.",
+      "testStrategy": "Test application behavior under various failure scenarios. Verify fallback to cached data works correctly. Test retry mechanisms. Ensure error messages are user-friendly."
+    },
+    {
+      "id": 14,
+      "title": "Set up AWS deployment infrastructure",
+      "description": "Configure AWS services for hosting the application",
+      "status": "pending",
+      "dependencies": [
+        1
+      ],
+      "priority": "low",
+      "details": "Set up AWS resources: EC2 or ECS for backend, S3 and CloudFront for frontend, RDS for database. Configure security groups and IAM roles. Set up environment variables for different environments. Configure logging and monitoring. Set up backup strategies. Document the infrastructure setup.",
+      "testStrategy": "Deploy to a staging environment. Verify all components work together. Test scaling under load. Verify security configurations."
+    },
+    {
+      "id": 15,
+      "title": "Implement CI/CD pipeline",
+      "description": "Set up continuous integration and deployment workflow",
+      "status": "pending",
+      "dependencies": [
+        14
+      ],
+      "priority": "low",
+      "details": "Configure GitHub Actions or similar CI/CD service. Set up automated testing for frontend and backend. Create deployment workflows for different environments. Implement database migration in the deployment process. Add code quality checks. Configure deployment notifications. Document the CI/CD process.",
+      "testStrategy": "Test the complete CI/CD pipeline with a sample change. Verify automated tests run correctly. Test deployment to staging and production environments. Verify rollback procedures."
+    }
+  ],
+  "metadata": {
+    "projectName": "PRD Implementation",
+    "totalTasks": 15,
+    "sourceFile": "/Users/jiasheng/Documents/html-code/my/map-app/scripts/prd.txt",
+    "generatedAt": "2023-11-14"
+  }
+}
