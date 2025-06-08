@@ -1,0 +1,11 @@
+# Task ID: 11
+# Title: Implement real-time information display
+# Status: pending
+# Dependencies: 6, 7
+# Priority: medium
+# Description: Create components to display real-time arrival times and availability
+# Details:
+Implement components for displaying: bus arrival times, train schedules, and Ubike availability. Create polling mechanism for real-time updates. Add visual indicators for data freshness. Implement loading states. Create fallback UI for when real-time data is unavailable. Add time formatting utilities.
+
+# Test Strategy:
+Test real-time updates with mock data. Verify polling mechanism works correctly. Test fallback behavior when API fails. Verify time calculations and formatting.

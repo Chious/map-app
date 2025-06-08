@@ -1,0 +1,11 @@
+# Task ID: 7
+# Title: Set up React frontend with Vite and TailwindCSS
+# Status: pending
+# Dependencies: 1
+# Priority: high
+# Description: Initialize the frontend application with routing and basic UI components
+# Details:
+Set up React application with Vite. Configure TailwindCSS with a custom theme matching the application design. Implement responsive layouts. Create basic UI components (buttons, inputs, cards, etc.). Set up React Router for navigation. Create placeholder pages for main features. Implement a basic layout with header and footer.
+
+# Test Strategy:
+Verify component rendering with React Testing Library. Test responsive design across different screen sizes. Ensure accessibility compliance with automated tools.

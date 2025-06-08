@@ -1,0 +1,11 @@
+# Task ID: 12
+# Title: Implement real-time vehicle position tracking
+# Status: pending
+# Dependencies: 9, 11
+# Priority: medium
+# Description: Add functionality to display real-time positions of buses and trains on the map
+# Details:
+Create DeckGL layer for vehicle positions (ScatterplotLayer). Implement real-time updates for vehicle positions. Add animations for smooth transitions. Create vehicle markers with direction indicators. Add vehicle details on click/hover. Optimize for performance with many vehicles.
+
+# Test Strategy:
+Test vehicle position updates. Verify animation smoothness. Test with varying numbers of vehicles to ensure performance. Verify interaction with vehicle markers.

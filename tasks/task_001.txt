@@ -1,0 +1,11 @@
+# Task ID: 1
+# Title: Set up project development environment
+# Status: done
+# Dependencies: None
+# Priority: high
+# Description: Initialize the project repository with React + Vite frontend and Express backend structure
+# Details:
+Create a monorepo structure with separate directories for frontend and backend. Initialize the frontend with Vite and React, configure TailwindCSS. Set up the Express backend with TypeScript support. Configure ESLint, Prettier, and Git hooks for code quality. Create basic README documentation with setup instructions.
+
+# Test Strategy:
+Verify that both frontend and backend can be started locally. Ensure that the development environment includes hot reloading and proper TypeScript compilation.

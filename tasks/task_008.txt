@@ -1,0 +1,11 @@
+# Task ID: 8
+# Title: Implement DeckGL map integration
+# Status: pending
+# Dependencies: 5, 7
+# Priority: high
+# Description: Integrate DeckGL for interactive map visualization
+# Details:
+Set up DeckGL in the React application. Configure map initialization with proper center coordinates for Taiwan. Implement map controls (zoom, pan, etc.). Connect to the tile server for base map layers. Create custom map styles. Implement responsive map container. Add basic map interaction handlers.
+
+# Test Strategy:
+Test map rendering and basic interactions. Verify tile loading from the backend. Test map performance with different devices and browsers.

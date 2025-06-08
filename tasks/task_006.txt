@@ -1,0 +1,11 @@
+# Task ID: 6
+# Title: Create Express API endpoints for transportation data
+# Status: pending
+# Dependencies: 4
+# Priority: high
+# Description: Implement RESTful API endpoints to serve cached transportation data
+# Details:
+Create API endpoints for: bus routes search, train schedule lookup, station information, and Ubike availability. Implement filtering and pagination. Add proper error handling and status codes. Implement request validation. Document all endpoints with Swagger/OpenAPI. Add rate limiting for public endpoints.
+
+# Test Strategy:
+Write integration tests for all API endpoints. Test error scenarios and edge cases. Verify response formats match frontend requirements.
